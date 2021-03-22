@@ -1,0 +1,13 @@
+.idea
+.git
+coverage
+log
+node_modules
+public/packs
+test
+tmp
+
+.byebug_history
+.env
+.gitignore
+.rspec

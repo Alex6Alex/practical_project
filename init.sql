@@ -1,0 +1,2 @@
+-- CREATE ROLE practical_project;
+-- ALTER ROLE practical_project WITH SUPERUSER;

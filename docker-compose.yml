@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/practic_project
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/practic_project/node_modules
+    depends_on:
+      - database
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      RAILS_ENV: development
+
+  database:
+    image: postgres:latest
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file: .env
+
+volumes:
+  db_data:
+  gem_cache:
+  node_modules:
